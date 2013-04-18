@@ -1,0 +1,12 @@
+.children
+.project
+.gitmodules
+*.map
+*.lock
+*.tmp
+packages
+packages/
+local
+local/
+pubspec.lock
+pubspec.yaml
