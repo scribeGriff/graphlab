@@ -1,0 +1,9 @@
+name: graphlab
+version: 0.0.1
+author: Richard Griffith (scribe.griff@gmail.com)
+description: A small collection of graph algorithms in Dart.
+homepage: http://www.scribegriff.com
+
+#dependencies:
+#  js: any
+#  unittest: any
