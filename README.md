@@ -1,3 +1,3 @@
-# graphlab #
+# GraphLab #
 
-## TBD. ##
+## A small library of graph algorithms ##

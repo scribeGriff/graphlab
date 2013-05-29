@@ -95,7 +95,7 @@ void main() {
                          [9, 1]];
 
 
-  var futureScc = scc(sccfile1);
+  var futureScc = scc(sccfile5);
   futureScc.then((sccResults) {
     print('The size of each strongly connected component is ${sccResults.data}.');
     print('There are ${sccResults.value} nodes in this graph.');

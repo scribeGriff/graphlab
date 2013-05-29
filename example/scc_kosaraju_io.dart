@@ -14,9 +14,9 @@ import 'dart:collection';
 
 void main() {
   //Path for use in editor.
-  String filename = 'example/data/large_scc.txt';
+  //String filename = 'example/data/large_scc.txt';
   //Path for command line.
-  //String filename = 'data/large_scc.txt';
+  String filename = 'data/large_scc.txt';
   List<List<int>> sccfile = [];
   Stopwatch watch = new Stopwatch()..start();
   Stream<List<int>> stream = new File(filename).openRead();
@@ -39,23 +39,23 @@ void main() {
         scc(sccfile).then((sccResults) {
           print('Finished computing all sccs in ${watch.elapsedMilliseconds / 1000} secs');
           print('This graph contains ${sccResults.value} nodes.');
-          print('The size of the 4 largest sccs is ${sccResults.data.sublist(0, 4)}');
+          print('The size of the 10 largest sccs is ${sccResults.data.sublist(0, 10)}');
           print('The total number of sccs is ${sccResults.data.length}');
           // We can reorder the results and put the scc as the key and the nodes
           // as the values. Note - don't try this on large graphs.  Very slow.
-          HashMap sets = new HashMap();
-          for (var value in sccResults.sccNodes.values) {
-            if (!sets.containsKey(value)) {
-              sets[value] = new HashSet();
-              for (var key in sccResults.sccNodes.keys) {
-                if (sccResults.sccNodes[key] == value) {
-                  sets[value].add(key);
-                }
-              }
-            }
-          }
-          print('The map of components with a list of the nodes belonging to it: \n'
-              '$sets');
+//          HashMap sets = new HashMap();
+//          for (var value in sccResults.sccNodes.values) {
+//            if (!sets.containsKey(value)) {
+//              sets[value] = new HashSet();
+//              for (var key in sccResults.sccNodes.keys) {
+//                if (sccResults.sccNodes[key] == value) {
+//                  sets[value].add(key);
+//                }
+//              }
+//            }
+//          }
+//          print('The map of components with a list of the nodes belonging to it: \n'
+//              '$sets');
         });
       },
       onError: (e) {

@@ -5,7 +5,8 @@
 /**
  * Example using the function 2sat() to determine the satisfiability
  * of a 2d array of clauses.  Implements Kosaraju's algorithm to allow
- * a linear bound on this NPC problem.
+ * a linear bound on this special case of the general NPC boolean
+ * satisfiability problem.
  */
 
 import 'package:graphlab/graphlab.dart';
@@ -13,9 +14,9 @@ import 'dart:async';
 import 'dart:io';
 
 void main() {
-  //String filename = 'example/data/2sat6.txt';
+  String filename = 'example/data/2sat6.txt';
   // For command line:
-  String filename = 'data/2sat6.txt';
+  //String filename = 'data/2sat6.txt';
   List<List<int>> satfile = [];
   Stopwatch watch = new Stopwatch()..start();
   Stream stream = new File(filename).openRead();
