@@ -45,8 +45,8 @@ part of graphlab;
  */
 
 /// The top level function primst returns the object PrimstResults.
-PrimstResults primst(var adjList, [var numVertices]) =>
-    new _PrimsMst(adjList).computeMST(numVertices);
+Future<PrimstResults> primst(var adjList, [var numVertices]) =>
+    new Future(() => new _PrimsMst(adjList).computeMST(numVertices));
 
 /// The private class _PrimsMst.
 class _PrimsMst {

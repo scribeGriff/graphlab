@@ -41,9 +41,9 @@ part of graphlab;
  *
  */
 
-/// The top level function primst returns the object PrimstResults.
-KmstResults kmst(var adjList, [var numVertices]) =>
-    new _KruskalsMst(adjList).computeMST(numVertices);
+/// The top level function kmst returns the object KmstResults.
+Future<KmstResults> kmst(var adjList, [var numVertices]) =>
+    new Future(() => new _KruskalsMst(adjList).computeMST(numVertices));
 
 /// The private class _KmsMst.
 class _KruskalsMst {

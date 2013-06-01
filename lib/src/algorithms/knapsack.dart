@@ -43,8 +43,8 @@ part of graphlab;
  */
 
 /// The top level function apsp returns the object ApspResults.
-KnapResults knap(var valueWeight, var capacity) =>
-    new _Knapsack(valueWeight).computeCapacity(capacity);
+Future<KnapResults> knap(var valueWeight, var capacity) =>
+    new Future(() => new _Knapsack(valueWeight).computeCapacity(capacity));
 
 class _Knapsack {
   const minValue = -2147483648;
