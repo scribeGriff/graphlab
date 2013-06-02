@@ -13,7 +13,8 @@ part of graphlab;
  * is returned.  If a valid solution is obtained, then the value of the
  * shortest shortest path is returned and a list of all the shortest paths.
  *
- * Example usage.
+ * Example usage:
+ *
  *     List<List<int>> adjl = [[1, 2, 2],
  *                             [1, 3, 5],
  *                             [2, 4, -4],
@@ -27,12 +28,13 @@ part of graphlab;
  *                             [6, 5, -5]];
  *     var nodes = 6;
  *     var edges = 11;
- *     var ssp = apsp(adjl, nodes, edges);
- *     if (ssp == null) {
- *       print('Negative cycle detected');
- *     } else {
- *       print('The shortest shortest path length is ${ssp.value}.');
- *     }
+ *     apsp(adjl, nodes, edges).then((sspResults) {
+ *       if (ssp == null) {
+ *         print('A negative cycle has been detected.');
+ *       } else {
+ *         print('The shortest shortest path length is ${ssp.value}.');
+ *       }
+ *     });
  *
  * Prints: The shortest shortest path length is -7.
  *
@@ -49,6 +51,7 @@ Future<ApspResults> apsp(var adjList, var numVertices, var numEdges) =>
     new Future(() => new _Apsp(adjList).computeApsp(numVertices, numEdges));
 
 class _Apsp {
+  // Just need some large value to indicate that no path exists.
   const largeValue = 2147483647;
 
   final List<List> adjList;
@@ -96,7 +99,7 @@ class _Apsp {
       }
     }
     // Create a list of the shortests paths and find
-    // the shortest shortest path.
+    // the shortest shortest path value.
     for (var i = 0; i < N; i++) {
       for (var j = 0; j < N; j++) {
         if (adjMatrix[i][j]  < largeValue >> 1) {
@@ -109,7 +112,10 @@ class _Apsp {
         }
       }
     }
-    return new ApspResults(apspList, shortest);
+    // Return the nodes of the shortest shortest path as a List.
+    var nodes = apspList.where((x) => x.elementAt(2) == shortest).map((x) =>
+        x.sublist(0, 2)).toList()[0];
+    return new ApspResults(apspList, shortest, nodes);
   }
 }
 
@@ -117,6 +123,7 @@ class _Apsp {
 /// Returns a 2D array of the shortest paths between two vertices as data
 /// and the shortest of the shortest paths as value.
 class ApspResults extends GraphLabResults {
+  final List nodes;
 
-  ApspResults(List data, int value) : super(data, value);
+  ApspResults(List data, int value, this.nodes) : super(data, value);
 }

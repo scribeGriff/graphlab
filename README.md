@@ -2,7 +2,7 @@
 
 # Graphlab #
 
-## A small library of graph algorithms. ##
+## A small library of (mostly) graph algorithms. ##
 
 ## Overview ##
 The graphlab library is a `Future<>` based library supporting the following graph algorithms:
