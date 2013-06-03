@@ -15,7 +15,7 @@ import 'package:graphlab/graphlab.dart';
 import 'dart:async';
 
 void main() {
-  // This graph contains a negative cycle.
+  // The shortest shortest path is between nodes 3 and 4 and is equal to -7.
   List<List<int>> graph1 = [[1, 2, 2],
                             [1, 3, 5],
                             [2, 4, -4],
@@ -28,7 +28,7 @@ void main() {
                             [6, 4, 1],
                             [6, 5, -5]];
 
-  // The shortest shortest path is between nodes 3 and 4 and is equal to -7.
+  // This graph contains a negative cycle.
   List<List<int>> graph2 = [[1, 2, 2],
                             [1, 3, 5],
                             [2, 4, -4],

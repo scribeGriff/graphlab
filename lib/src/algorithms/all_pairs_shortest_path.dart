@@ -65,22 +65,18 @@ class _Apsp {
     var K = numEdges;
     var shortest = largeValue;
 
-    adjMatrix = new List<List<int>>(N);
-    // create the sublists
-    for (var i = 0; i < N; i++) {
-      adjMatrix[i] = new List<int>(N);
-    }
-    // populate with a very large number except where i = j.
+    // Create a 2D array and populate it with variable largeValue.
+    adjMatrix = new List.generate(N, (var index) => new List.filled(N, largeValue));
+
+    // If index i = j in the adjacency matrix, set its value to 0.
     for (var i = 0; i < N; i++) {
       for (var j = 0; j < N; j++) {
         if (i == j) {
           adjMatrix[i][j] = 0;
-        } else {
-          adjMatrix[i][j] = largeValue;
         }
       }
     }
-    // Map the adjacency list to a sparse array.
+    // Map the adjacency list to the sparse array.
     for (var i = 1; i < adjList.length; i++) {
       adjMatrix[adjList[i][0] - 1][adjList[i][1] - 1] = adjList[i][2];
     }
@@ -94,7 +90,7 @@ class _Apsp {
         }
         if (adjMatrix[j][j] < 0.0) {
           // Found a negative edge cycle. Exit and return null.
-          return  null;
+          return null;
         }
       }
     }
