@@ -19,6 +19,7 @@ library graphlabtests;
 
 import 'package:graphlab/graphlab.dart';
 import 'package:unittest/unittest.dart';
+import 'dart:collection';
 
 part 'tests/apsp_tests.dart';
 part 'tests/kmst_tests.dart';
