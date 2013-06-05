@@ -21,8 +21,8 @@ void main() {
 
   var nodes = 5;
   primst(graph, nodes).then((mstResults) {
-    print(mstResults.data);
-    print(mstResults.value);
+    print('The minimum spanning tree of this graph is:\n${mstResults.data}');
+    print('The sum of the edge weights of the mst is: ${mstResults.value}');
   });
 
   // prints:

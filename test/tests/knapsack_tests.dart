@@ -11,9 +11,23 @@ part of graphlabtests;
 void knapsackTests() {
   logMessage('Performing knapsack algorithm tests.');
 
+  List<List<int>> ksack1 = [[874, 580],
+                            [620, 1616],
+                            [345, 1906],
+                            [369, 1942],
+                            [360, 50],
+                            [470, 294]];
+
+  var capacity = 2000;
+
   group('Testing knapsack algorithm:', () {
-    test('Calculate knapsack value: Expect 23', () {
-      // placeholder
+    test('Calculate optimum knapsack weight and value: Expect value = 1704 and '
+        'weight = 924', () {
+      var knapFuture = knap(ksack1, capacity).then((ksackResults) {
+        expect(ksackResults.value, equals(1704));
+        expect(ksackResults.weight, equals(924));
+      });
+      expect(knapFuture, completes);
     });
   });
 }
