@@ -65,17 +65,11 @@ class _Apsp {
     var K = numEdges;
     var shortest = largeValue;
 
-    // Create a 2D array and populate it with variable largeValue.
-    adjMatrix = new List.generate(N, (var index) => new List.filled(N, largeValue));
+    // Create a 2D array and populate it with a large value except at
+    // i = j which is set equal to 0.
+    adjMatrix = new List.generate(N, (var i) =>
+        new List.generate(N, (var j) => i == j ? 0 : largeValue));
 
-    // If index i = j in the adjacency matrix, set its value to 0.
-    for (var i = 0; i < N; i++) {
-      for (var j = 0; j < N; j++) {
-        if (i == j) {
-          adjMatrix[i][j] = 0;
-        }
-      }
-    }
     // Map the adjacency list to the sparse array.
     for (var i = 1; i < adjList.length; i++) {
       adjMatrix[adjList[i][0] - 1][adjList[i][1] - 1] = adjList[i][2];
