@@ -1,11 +1,10 @@
 // Copyright (c) 2013, scribeGriff (Richard Griffith)
-// https://github.com/scribeGriff/ConvoLab
+// https://github.com/scribeGriff/graphlab
 // All rights reserved.  Please see the LICENSE.md file.
 
 /**
  * Example using the function 2sat() to determine the satisfiability
- * of a 2d array of clauses.  Implements Kosaraju's algorithm to allow
- * the a linear bound on this NPC problem.
+ * of a 2d array of clauses.  Implements Kosaraju's algorithm.
  */
 
 import 'package:graphlab/graphlab.dart';
