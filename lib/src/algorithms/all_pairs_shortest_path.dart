@@ -52,23 +52,22 @@ Future<ApspResults> apsp(var adjList, var numVertices, var numEdges) =>
 
 class _Apsp {
   // Just need some large value to indicate that no path exists.
-  const largeValue = 2147483647;
-
+  // Small integer requires < 2^30 - 1 (32 bit) = 1073741823.
+  const largeValue = 1073741823 >> 1;
   final List<List> adjList;
   List<List> adjMatrix;
-  List<List> apspList = [];
+  List<List> apspList = new List();
+  List<int> nodes = new List(2);
 
   _Apsp(this.adjList);
 
-  ApspResults computeApsp(var numVertices, var numEdges) {
-    var N = numVertices;
-    var K = numEdges;
-    var shortest = largeValue;
+  ApspResults computeApsp(final N, final K) {
+    var shortPath = largeValue;
 
     // Create a 2D array and populate it with a large value except at
     // i = j which is set equal to 0.
-    adjMatrix = new List.generate(N, (var i) =>
-        new List.generate(N, (var j) => i == j ? 0 : largeValue));
+    adjMatrix = new List.generate(N, (i) =>
+        new List.generate(N, (j) => i == j ? 0 : largeValue));
 
     // Map the adjacency list to the sparse array.
     for (var i = 1; i < adjList.length; i++) {
@@ -88,24 +87,19 @@ class _Apsp {
         }
       }
     }
-    // Create a list of the shortests paths and find
-    // the shortest shortest path value.
+    // Map the sparse matrix to a list of all pairs shortest paths and find the
+    // shortest - shortest path value and the nodes comprising the
+    // shortest - shortest path.
     for (var i = 0; i < N; i++) {
       for (var j = 0; j < N; j++) {
-        if (adjMatrix[i][j]  < largeValue >> 1) {
-          apspList.add([i + 1, j + 1, adjMatrix[i][j]]);
-        } else {
-          apspList.add([i + 1, j + 1, 'inf']);
-        }
-        if (adjMatrix[i][j] < shortest) {
-          shortest = adjMatrix[i][j];
+        apspList.add([i + 1, j + 1, adjMatrix[i][j]]);
+        if (adjMatrix[i][j] < shortPath) {
+          shortPath = adjMatrix[i][j];
+          nodes = [i + 1, j + 1];
         }
       }
     }
-    // Return the nodes of the shortest shortest path as a List.
-    var nodes = apspList.where((x) => x.elementAt(2) == shortest).map((x) =>
-        x.sublist(0, 2)).toList()[0];
-    return new ApspResults(apspList, shortest, nodes);
+    return new ApspResults(apspList, shortPath, nodes);
   }
 }
 

@@ -16,33 +16,33 @@ import 'dart:async';
 
 void main() {
   // The shortest shortest path is between nodes 3 and 4 and is equal to -7.
-  List<List<int>> graph1 = [[1, 2, 2],
-                            [1, 3, 5],
-                            [2, 4, -4],
-                            [4, 3, 8],
-                            [4, 5, 2],
-                            [3, 1, 4],
-                            [3, 2, -3],
-                            [3, 4, 6],
-                            [3, 6, 5],
-                            [6, 4, 1],
-                            [6, 5, -5]];
+  final List<List<int>> graph1 = [[1, 2, 2],
+                                 [1, 3, 5],
+                                 [2, 4, -4],
+                                 [4, 3, 8],
+                                 [4, 5, 2],
+                                 [3, 1, 4],
+                                 [3, 2, -3],
+                                 [3, 4, 6],
+                                 [3, 6, 5],
+                                 [6, 4, 1],
+                                 [6, 5, -5]];
 
   // This graph contains a negative cycle.
-  List<List<int>> graph2 = [[1, 2, 2],
-                            [1, 3, 5],
-                            [2, 4, -4],
-                            [4, 3, 6],
-                            [4, 5, 2],
-                            [3, 1, 4],
-                            [3, 2, -3],
-                            [3, 4, 6],
-                            [3, 6, 5],
-                            [6, 4, 1],
-                            [6, 5, -5]];
-  var nodes = 6;
-  var edges = 11;
-  var graphs = [graph1, graph2];
+  final List<List<int>> graph2 = [[1, 2, 2],
+                                  [1, 3, 5],
+                                  [2, 4, -4],
+                                  [4, 3, 6],
+                                  [4, 5, 2],
+                                  [3, 1, 4],
+                                  [3, 2, -3],
+                                  [3, 4, 6],
+                                  [3, 6, 5],
+                                  [6, 4, 1],
+                                  [6, 5, -5]];
+  final nodes = 6;
+  final edges = graph1.length;
+  final graphs = [graph1, graph2];
 
   for (var graph in graphs) {
     var index = graphs.indexOf(graph) + 1;
