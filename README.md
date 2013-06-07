@@ -4,6 +4,8 @@
 
 ## A small library of (mostly) graph algorithms. ##
 
+[![Build Status](https://drone.io/github.com/scribeGriff/graphlab/status.png)](https://drone.io/github.com/scribeGriff/graphlab/latest)
+
 ## Overview ##
 The graphlab library is a `Future<>` based library supporting the following graph algorithms:
 
