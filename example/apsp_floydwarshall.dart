@@ -12,7 +12,6 @@
  */
 
 import 'package:graphlab/graphlab.dart';
-import 'dart:async';
 
 void main() {
   // The shortest shortest path is between nodes 3 and 4 and is equal to -7.

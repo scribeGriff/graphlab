@@ -8,7 +8,6 @@
  */
 
 import 'package:graphlab/graphlab.dart';
-import 'dart:async';
 
 void main() {
   // Unsatisfiable.  Same as 2sat_55unsat.txt in library ConvoHio.
