@@ -47,7 +47,9 @@ Future<KnapResults> knap(var valueWeight, var capacity) =>
     new Future(() => new _Knapsack(valueWeight).computeCapacity(capacity));
 
 class _Knapsack {
-  const minValue = -2147483648;
+  // Just need some small value to indicate a minimum.
+  // Small integer requires < -2^30 (32 bit) = -1073741824.
+  const minValue = -1073741824 >> 1;
   final valueWeight;
   List<List<int>> optimum;
   List<List<bool>> incItem;
