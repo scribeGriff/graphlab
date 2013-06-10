@@ -10,7 +10,6 @@
 import 'package:graphlab/graphlab.dart';
 import 'dart:async';
 import 'dart:io';
-import 'dart:collection';
 
 void main() {
   //Path to external file.
