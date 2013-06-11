@@ -52,7 +52,7 @@ Future<PrimstResults> primst(var adjList, [var numVertices]) =>
 class _PrimsMst {
   // Just need some large value to indicate an arbitrarily large weight.
   // Small integer requires < 2^30 - 1 (32 bit) = 1073741823.
-  const largeValue = 1073741823 >> 1;
+  static const largeValue = 1073741823 >> 1;
   final List<List<int>> adjList;
   List<List<int>> adjMatrix;
   List<List<int>> mstree;

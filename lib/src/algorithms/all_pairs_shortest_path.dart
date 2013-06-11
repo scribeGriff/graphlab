@@ -53,7 +53,7 @@ Future<ApspResults> apsp(var adjList, var numVertices, var numEdges) =>
 class _Apsp {
   // Just need some large value to indicate that no path exists.
   // Small integer requires < 2^30 - 1 (32 bit) = 1073741823.
-  const largeValue = 1073741823 >> 1;
+  static const largeValue = 1073741823 >> 1;
   final List<List> adjList;
   List<List> adjMatrix;
   List<List> apspList = new List();
