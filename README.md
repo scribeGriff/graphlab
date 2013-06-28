@@ -6,6 +6,8 @@
 
 [![Build Status](https://drone.io/github.com/scribeGriff/graphlab/status.png)](https://drone.io/github.com/scribeGriff/graphlab/latest)
 
+[![endorse](https://api.coderwall.com/scribegriff/endorsecount.png)](https://coderwall.com/scribegriff)
+
 ## Overview ##
 The graphlab library is a `Future<>` based library supporting the following graph algorithms:
 
