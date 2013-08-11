@@ -18,7 +18,7 @@ The graphlab library is a `Future<>` based library supporting the following grap
 - `apsp()`: All Pair's Shortest Path (with Floyd-Warshall)
 - `knap()`: Knapsack Problem 
 
-Libary access is through top level function calls.
+Library access is through top level function calls.
 
 ### Library Usage ##
 
