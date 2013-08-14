@@ -12,17 +12,16 @@
 import 'package:graphlab/graphlab.dart';
 import 'dart:async';
 import 'dart:io';
+import 'dart:convert';
 
 void main() {
-  String filename = 'example/data/2sat6.txt';
-  // For command line:
-  //String filename = 'data/2sat6.txt';
+  String filename = 'data/2sat6.txt';
   List<List<int>> satfile = [];
   Stopwatch watch = new Stopwatch()..start();
   Stream stream = new File(filename).openRead();
   stream
       .transform(new StringDecoder())
-      .transform(new LineTransformer())
+      .transform(new LineSplitter())
       .listen((String line) {
         List<String> stringBuffer = line.split(" ");
         List<int> intBuffer = [];
@@ -49,5 +48,14 @@ void main() {
       onError: (e) {
         print('There was an error opening the file: $e');
       });
+  // Prints:
+  // There are 1000000 clauses in this graph.
+  // Finished reading in file in 4.507 secs
+  // Finished creating graphs in 7.134 secs
+  // finished first DFS in 1.106 secs
+  // finished second DFS in 2.113 secs
+  // Finished calculating data in 0.019 secs
+  // Finished computing the 2-SAT problem in 21.955 secs
+  // The graph is not satisfiable.
 }
 

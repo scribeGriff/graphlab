@@ -59,6 +59,7 @@ An example of computing the maximum spacing of a 4-clustering given a distance f
     import 'package:graphlab/graphlab.dart';
     import 'dart:async';
     import 'dart:io';
+    import 'dart:convert';
     
     void main() {
       //Path to external file.
@@ -70,7 +71,7 @@ An example of computing the maximum spacing of a 4-clustering given a distance f
       Stream<List<int>> stream = new File(filename).openRead();
       stream
         .transform(new StringDecoder())
-        .transform(new LineTransformer())
+        .transform(new LineSplitter())
         .listen((String line) {
           var stringBuffer = line.split(" ");
           var intBuffer = [];

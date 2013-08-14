@@ -10,6 +10,7 @@
 import 'package:graphlab/graphlab.dart';
 import 'dart:async';
 import 'dart:io';
+import 'dart:convert';
 
 void main() {
   //Path to external file.
@@ -20,7 +21,7 @@ void main() {
   Stream<List<int>> stream = new File(filename).openRead();
   stream
       .transform(new StringDecoder())
-      .transform(new LineTransformer())
+      .transform(new LineSplitter())
       .listen((String line) {
         var stringBuffer = line.split(" ");
         var intBuffer = [];
@@ -50,9 +51,9 @@ void main() {
         print('There was an error: $e');
       });
   // Prints:
-  // Finished reading in file in 0.039 secs.
+  // Finished reading in file in 0.048 secs.
   // There are 100 items to choose from.
-  // Finished computing optimum value in 0.74 secs.
+  // Finished computing optimum value in 0.115 secs.
   // The optimum knapsack has a value of 2493893 with a weight of 9976.
   // The optimal solution selects the following items:
   // [64441, 166]

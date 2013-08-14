@@ -11,6 +11,7 @@ import 'package:graphlab/graphlab.dart';
 import 'dart:async';
 import 'dart:io';
 import 'dart:collection';
+import 'dart:convert';
 
 void main() {
   //Path to external file.
@@ -20,7 +21,7 @@ void main() {
   Stream<List<int>> stream = new File(filename).openRead();
   stream
       .transform(new StringDecoder())
-      .transform(new LineTransformer())
+      .transform(new LineSplitter())
       .listen((String line) {
         var stringBuffer = line.split(" ");
         var intBuffer = [];
