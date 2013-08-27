@@ -70,7 +70,7 @@ An example of computing the maximum spacing of a 4-clustering given a distance f
       Stopwatch watch = new Stopwatch()..start();
       Stream<List<int>> stream = new File(filename).openRead();
       stream
-        .transform(new StringDecoder())
+        .transform(UTF8.decoder)
         .transform(new LineSplitter())
         .listen((String line) {
           var stringBuffer = line.split(" ");
@@ -104,5 +104,4 @@ An example of computing the maximum spacing of a 4-clustering given a distance f
         // Calculating the maximum spacing of a 4-clustering for this graph...
         // The maximum spacing of a 4-clustering for this graph is 1951.
     }
-
 

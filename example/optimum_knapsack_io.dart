@@ -20,7 +20,7 @@ void main() {
   Stopwatch watch = new Stopwatch()..start();
   Stream<List<int>> stream = new File(filename).openRead();
   stream
-      .transform(new StringDecoder())
+      .transform(UTF8.decoder)
       .transform(new LineSplitter())
       .listen((String line) {
         var stringBuffer = line.split(" ");
