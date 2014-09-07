@@ -29,12 +29,12 @@ part 'tests/scc_tests.dart';
 part 'tests/twosat_tests.dart';
 
 void main() {
-  group('All Tests:', (){
-    test('Test of all pairs shortest path algorithm.', () => apspTests());
-    test('Test of kruskals mst algorithm.', () => kmstTests());
-    test('Test of knapsack algorithm.', () => knapsackTests());
-    test('Test of prims mst algorithm.', () => primstTests());
-    test('Test of strongly connected components algorithm.', () => sccTests());
-    test('Test of twosat algorithm.', () => twosatTests());
+  group('All Tests:', () {
+    group('Test of all pairs shortest path algorithm.', () => apspTests());
+    group('Test of kruskals mst algorithm.', () => kmstTests());
+    group('Test of knapsack algorithm.', () => knapsackTests());
+    group('Test of prims mst algorithm.', () => primstTests());
+    group('Test of strongly connected components algorithm.', () => sccTests());
+    group('Test of twosat algorithm.', () => twosatTests());
   });
 }
